@@ -67,6 +67,16 @@ CREATE TABLE `ssb`.`Meetups`.`openskyairport` (
 
 ````
 
+#### Flink SQL Query
+
+````
+select icao24, callsign, firstSeen, lastSeen, estDepartureAirport, arrivalAirportCandidatesCount,
+      estDepartureAirportHorizDistance, estDepartureAirportVertDistance, estArrivalAirportHorizDistance, 
+      estArrivalAirportVertDistance, departureAirportCandidatesCount
+from openskyairport
+
+````
+
 # References
 
 * https://github.com/tspannhw/pulsar-adsb-function

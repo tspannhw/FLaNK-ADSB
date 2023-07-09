@@ -9,6 +9,42 @@ https://opensky-network.org/api/flights/departure?airport=KEWR&begin=${now():toN
 
 ````
 
+#### Flink SQL Table
+
+````
+
+CREATE TABLE `ssb`.`Meetups`.`openskyairport` (
+  `icao24` VARCHAR(2147483647),
+  `firstSeen` BIGINT,
+  `estDepartureAirport` VARCHAR(2147483647),
+  `lastSeen` BIGINT,
+  `estArrivalAirport` VARCHAR(2147483647),
+  `callsign` VARCHAR(2147483647),
+  `estDepartureAirportHorizDistance` BIGINT,
+  `estDepartureAirportVertDistance` BIGINT,
+  `estArrivalAirportHorizDistance` VARCHAR(2147483647),
+  `estArrivalAirportVertDistance` VARCHAR(2147483647),
+  `departureAirportCandidatesCount` BIGINT,
+  `arrivalAirportCandidatesCount` BIGINT,
+  `ts` VARCHAR(2147483647),
+  `uuid` VARCHAR(2147483647),
+  `eventTimeStamp` TIMESTAMP(3) WITH LOCAL TIME ZONE METADATA FROM 'timestamp',
+  WATERMARK FOR `eventTimeStamp` AS `eventTimeStamp` - INTERVAL '3' SECOND
+) WITH (
+  'scan.startup.mode' = 'group-offsets',
+  'deserialization.failure.policy' = 'ignore_and_log',
+  'properties.request.timeout.ms' = '120000',
+  'properties.auto.offset.reset' = 'earliest',
+  'format' = 'json',
+  'properties.bootstrap.servers' = 'kafka:9092',
+  'connector' = 'kafka',
+  'properties.transaction.timeout.ms' = '900000',
+  'topic' = 'openskyairport',
+  'properties.group.id' = 'openskyairportflrdrgrp'
+)
+
+
+````
 
 # References
 

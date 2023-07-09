@@ -2,6 +2,13 @@
 ADSB-Y Flights
 
 
+#### Query to obtain airport info
+
+````
+https://opensky-network.org/api/flights/departure?airport=KEWR&begin=${now():toNumber():divide(1000):minus(604800)}&end=${now():toNumber():divide(1000)}
+
+````
+
 
 # References
 

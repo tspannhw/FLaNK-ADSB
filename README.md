@@ -9,6 +9,27 @@ https://opensky-network.org/api/flights/departure?airport=KEWR&begin=${now():toN
 
 ````
 
+#### Example JSON Data
+
+````
+{
+  "icao24" : "a46cc1",
+  "firstSeen" : 1688869070,
+  "estDepartureAirport" : "KEWR",
+  "lastSeen" : 1688869079,
+  "estArrivalAirport" : null,
+  "callsign" : "UAL1317 ",
+  "estDepartureAirportHorizDistance" : 645,
+  "estDepartureAirportVertDistance" : 32,
+  "estArrivalAirportHorizDistance" : null,
+  "estArrivalAirportVertDistance" : null,
+  "departureAirportCandidatesCount" : 325,
+  "arrivalAirportCandidatesCount" : 0,
+  "ts" : "1688869093501",
+  "uuid" : "30682e35-e695-4524-8d1b-1abd0c7cffaf"
+}
+````
+
 #### Flink SQL Table
 
 ````

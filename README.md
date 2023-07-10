@@ -1,5 +1,6 @@
 # FLaNK-ADSB
-ADSB-Y Flights
+
+ADSB-Y Flight Information
 
 
 #### Query to obtain airport info
@@ -29,6 +30,14 @@ https://opensky-network.org/api/flights/departure?airport=KEWR&begin=${now():toN
   "uuid" : "30682e35-e695-4524-8d1b-1abd0c7cffaf"
 }
 ````
+
+![data](https://github.com/tspannhw/FLaNK-ADSB/blob/main/images/nifidataopenskyairport.jpg?raw=true)
+
+#### Kafka Data
+
+![kafka1](https://github.com/tspannhw/FLaNK-ADSB/blob/main/images/openskyairportsmm2.jpg?raw=true)
+
+![kafka2](https://github.com/tspannhw/FLaNK-ADSB/blob/main/images/smmopenskyairportdata.jpg?raw=true)
 
 #### Flink SQL Table
 
@@ -64,8 +73,9 @@ CREATE TABLE `ssb`.`Meetups`.`openskyairport` (
   'properties.group.id' = 'openskyairportflrdrgrp'
 )
 
-
 ````
+![ssbkafka](https://github.com/tspannhw/FLaNK-ADSB/blob/main/images/buildakafkatableairport.jpg?raw=true)
+
 
 #### Flink SQL Query
 
@@ -76,6 +86,32 @@ select icao24, callsign, firstSeen, lastSeen, estDepartureAirport, arrivalAirpor
 from openskyairport
 
 ````
+
+![flinksql](https://github.com/tspannhw/FLaNK-ADSB/blob/main/images/openskyairportresultsflinksql2.jpg?raw=true)
+
+![flinksql2](https://github.com/tspannhw/FLaNK-ADSB/blob/main/images/ssbopenskyairportsqlresults.jpg?raw=true)
+
+
+
+#### NiFI Flow to Acquire Data
+
+
+![nifi0](https://github.com/tspannhw/FLaNK-ADSB/blob/main/images/airportstatusnifihead.jpg?raw=true)
+
+![nifi1](https://github.com/tspannhw/FLaNK-ADSB/blob/main/images/airportflightsnifidemomode.jpg?raw=true)
+
+
+
+![query](https://github.com/tspannhw/FLaNK-ADSB/blob/main/images/queryrecordairport.jpg?raw=true)
+
+![nifi2](https://github.com/tspannhw/FLaNK-ADSB/blob/main/images/airportjsonwriter.jpg?raw=true)
+
+![nifi5](https://github.com/tspannhw/FLaNK-ADSB/blob/main/images/updateRecordAirport.jpg?raw=true)
+
+![nifi3](https://github.com/tspannhw/FLaNK-ADSB/blob/main/images/publishkafkarecordairport.jpg?raw=true)
+
+![nifi4](https://github.com/tspannhw/FLaNK-ADSB/blob/main/images/updateParameterContextairport.jpg?raw=true)
+
 
 # References
 

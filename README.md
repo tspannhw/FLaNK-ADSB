@@ -96,6 +96,8 @@ from openskyairport
 #### NiFI Flow to Acquire Data
 
 
+![nififlow](https://github.com/tspannhw/FLaNK-ADSB/blob/main/images/flowall.jpg?raw=true)
+
 ![nifi0](https://github.com/tspannhw/FLaNK-ADSB/blob/main/images/airportstatusnifihead.jpg?raw=true)
 
 ![nifi1](https://github.com/tspannhw/FLaNK-ADSB/blob/main/images/airportflightsnifidemomode.jpg?raw=true)

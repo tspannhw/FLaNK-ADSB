@@ -85,6 +85,11 @@ select icao24, callsign, firstSeen, lastSeen, estDepartureAirport, arrivalAirpor
       estArrivalAirportVertDistance, departureAirportCandidatesCount
 from openskyairport
 
+
+select icao24, callsign, firstSeen, lastSeen, estDepartureAirport, estArrivalAirport, arrivalAirportCandidatesCount,
+      estDepartureAirportHorizDistance, estDepartureAirportVertDistance, estArrivalAirportHorizDistance, 
+      estArrivalAirportVertDistance, departureAirportCandidatesCount
+from openskyairport
 ````
 
 ![flinksql](https://github.com/tspannhw/FLaNK-ADSB/blob/main/images/openskyairportresultsflinksql2.jpg?raw=true)

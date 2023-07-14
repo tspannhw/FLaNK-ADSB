@@ -23,6 +23,7 @@
                        <th valign="left"><b>First Seen</b></th>
                        <th valign="left"><b>Last Seen</b></th>
                        <th valign="left"><b>Departure Airport</b></th>
+                       <th valign="left"><b>Arrival Airport</b></th>
                        <th valign="left"><b>Depart Distance</b></th>
                        <th valign="left"><b>Arrival Distance</b></th>
             </tr>
@@ -34,6 +35,7 @@
                        <th valign="left"><b>First Seen</b></th>
                        <th valign="left"><b>Last Seen</b></th>
                        <th valign="left"><b>Departure Airport</b></th>
+                       <th valign="left"><b>Arrival Airport</b></th>
                        <th valign="left"><b>Depart Distance</b></th>
                        <th valign="left"><b>Arrival Distance</b></th>
             </tr>
@@ -55,7 +57,7 @@ $(document).ready(function() {
     var t = $('#mtatable').DataTable();
 
 $.getJSON(
-'http://localhost:18131/api/v1/query/5237/airport?key=74b94c34-64ce-4f2e-8db4-67c99a3eb7dd&limit=250', 
+'http://localhost:18131/api/v1/query/5237/airports?key=74b94c34-64ce-4f2e-8db4-67c99a3eb7dd&limit=1000', 
     function(data) {
       $.each( data, function( key, val ) {
         console.log( data[key].icao24 );
@@ -80,6 +82,10 @@ $.getJSON(
         if ( !isEmpty(data[key].estDepartureAirport) ) {
             estDepartureAirport = data[key].estDepartureAirport;
         }
+        var estArrivalAirport= "";
+        if ( !isEmpty(data[key].estArrivalAirport) ) {
+            estArrivalAirport = data[key].estArrivalAirport;
+        }
         var estDepartureAirportHorizDistance= "";
         if ( !isEmpty(data[key].estDepartureAirportHorizDistance) ) {
             estDepartureAirportHorizDistance = data[key].estDepartureAirportHorizDistance;
@@ -89,7 +95,7 @@ $.getJSON(
             estArrivalAirportHorizDistance = data[key].estArrivalAirportHorizDistance;
         }
         t.row.add( [ icao24, callsign, firstSeen, lastSeen,
-                     estDepartureAirport, estDepartureAirportHorizDistance, estArrivalAirportHorizDistance ]).draw(true);
+                     estDepartureAirport, estArrivalAirport, estDepartureAirportHorizDistance, estArrivalAirportHorizDistance ]).draw(true);
       });
     });
 }); 

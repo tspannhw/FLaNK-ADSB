@@ -3,6 +3,13 @@
 ADSB-Y Flight Information
 
 
+#### Hardware
+
+https://flightaware.store/products/indoor-antenna-17cm-two-coil
+
+https://flightaware.store/products/pro-stick-plus
+
+
 #### Query to obtain airport info
 
 ````
